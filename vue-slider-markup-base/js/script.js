@@ -60,6 +60,7 @@ createApp({
                 ],
             // definisco indice corrente da dove parte la visualizzazione delle immagini
             currentIndex: 0,
+            currentInterval: null,
         };
     },
     methods: {
@@ -86,9 +87,15 @@ createApp({
             console.log(index);
             this.currentIndex = index;
         },
-        // per bonus 2 definisco variabile startAutoplay
+        // per bonus 2 creo funzione startAutoplay. quando mouse esce da slider fa partire autoplay
         startAutoplay() {
-            setInterval(this.nextImage, 3000);
+            this.currentInterval = setInterval(this.nextImage, 3000);
+            console.log('start autoplay');
+        },
+        // per bonus 3 creo funzione stopAutoplay. quando mouse va su slider ferma autoplay
+        stopAutoplay() {
+            clearInterval(this.currentInterval);
+            console.log('stop autoplay');
         },
     },
     mounted() {

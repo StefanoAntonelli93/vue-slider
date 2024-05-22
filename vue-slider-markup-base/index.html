@@ -22,7 +22,8 @@
         <!-- <h2 v-text="title"></h2> -->
         <!-- <h2 v-html="title"></h2> -->
         <div class="container">
-            <div class="slider-wrapper" tabindex="0">
+            <div class="slider-wrapper" tabindex="0" @mouseenter="stopAutoplay()"
+            @mouseleave="startAutoplay()">
                 <!-- uso v-for per iterare image in array images e v-show per mostrare image in currentINdex -->
                 <div class="item" v-for="(image, index) in images"
                 v-show="currentIndex === index">
