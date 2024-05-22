@@ -86,6 +86,21 @@ createApp({
             console.log(index);
             this.currentIndex = index;
         },
+        // per bonus 2 definisco variabile startAutoplay
+        startAutoplay() {
+            setInterval(this.nextImage, 3000);
+        },
+    },
+    mounted() {
+        console.log('app montata');
+    },
+    // *** BONUS 2 AUTOPLAY ***
+ 
+    created() {
+        console.log('app creata');
+        console.log(this.nextImage);
+        // richiamo variabile startAutoplay
+        this.startAutoplay();
     },
 }).mount('#app');
 
