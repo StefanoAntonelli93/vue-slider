@@ -34,11 +34,12 @@
                     <!-- next v-on-->
                     <div class="next" @click="nextImage"></div>
                     
-                    
+                    <!-- *** BONUS 1 *** -->
                     <!-- thumb v-for quando clicco su thumb attivo funzione setImage che mostra immagine in posizione currentIndex-->
-                    <div class="thumb active">
-                        <img v-for="(image, index) in images"  :src="image" @click="setImage(index)">
+                    <div class="thumb" v-for="(image, index) in images">
+                        <img :src="image" @click="setImage(index)">
                     </div>
+         
                 </div>
 
             </div>
