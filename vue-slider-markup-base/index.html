@@ -19,12 +19,18 @@
     <!-- v-cloak nasconde template finchè non è compilato (aggiungerlo in css)-->
     <div id="app" v-cloak> 
         <h1>{{ title }}</h1>
+        <!-- <h2 v-text="title"></h2> -->
+        <!-- <h2 v-html="title"></h2> -->
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
                 <!-- uso v-for per iterare image in array images e v-show per mostrare image in currentINdex -->
                 <div class="item" v-for="(image, index) in images"
                 v-show="currentIndex === index">
-                    <img :src="image" alt="">
+                    <img :src="images[currentIndex].image" alt="">
+                    <div class="text">
+                        <h2>{{ images[currentIndex].title }}</h2>
+                        <p>{{ images[currentIndex].text }}</p>
+                    </div>
                 </div>
            
                 <!-- thumbnails ******************************************* -->
@@ -37,7 +43,7 @@
                     <!-- *** BONUS 1 *** -->
                     <!-- thumb v-for quando clicco su thumb attivo funzione setImage che mostra immagine in posizione currentIndex-->
                     <div class="thumb" v-for="(image, index) in images">
-                        <img :src="image" @click="setImage(index)">
+                        <img :src="image.image" alt="" @click="setImage(index)">
                     </div>
          
                 </div>
